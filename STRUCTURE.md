@@ -22,7 +22,7 @@ Standalone mod repo nested in the Farm Together 2 workspace (`mods/ClickToChoose
 
 Shared, synced from the workspace `tools/`: `pack.ps1`, `Directory.Build.props` (do not edit here).
 
-## Renaming (the name is provisional)
+## Renaming (the name is final; this recipe is for reference only)
 
 1. `src/ClickToChoose.csproj`: rename the file and `<ModName>`.
 2. `src/core/ModIdentity.cs`: `Guid`, `Name`.

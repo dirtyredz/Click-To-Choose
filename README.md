@@ -1,7 +1,7 @@
-# Click To Choose (working name)
+# Click To Choose
 
 A BepInEx 6 IL2CPP mod for **Farm Together 2**: on the character customization screens an option
-(hair style, outfit piece, colour tile, ...) is applied only when you **click** it. Hovering still
+(hair style, outfit piece, ...) is applied only when you **click** it. Hovering still
 highlights a tile, but no longer selects it, so you can move the mouse across the grid to rotate or
 inspect your character without the preview changing underneath you.
 
@@ -36,4 +36,4 @@ dotnet build src\ClickToChoose.csproj -p:SkipDeploy=true -p:FarmTogether2GamePat
 .\pack.ps1   # honours the FarmTogether2GamePath environment variable too
 ```
 
-Status: pre-release (`0.0.1`); no public repo yet. MIT licensed.
+Status: 1.0.0. MIT licensed. Source: https://github.com/dirtyredz/Click-To-Choose

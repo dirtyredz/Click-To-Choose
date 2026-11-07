@@ -6,8 +6,8 @@
     <AssemblyName>$(ModName)</AssemblyName>
     <RootNamespace>$(ModName)</RootNamespace>
     <TargetFramework>net6.0</TargetFramework>
-    <!-- Pre-release default. Bump to 1.0.0 only when publishing; Plugin.cs reads it via ModBuildInfo. -->
-    <Version>0.0.1</Version>
+    <!-- Bump only when publishing; Plugin.cs reads it via ModBuildInfo. -->
+    <Version>1.0.0</Version>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>

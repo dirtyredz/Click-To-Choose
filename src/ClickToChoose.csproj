@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- The mod's name lives here and in src/core/ModIdentity.cs only; see STRUCTURE.md "Renaming". -->
+    <ModName>ClickToChoose</ModName>
+    <AssemblyName>$(ModName)</AssemblyName>
+    <RootNamespace>$(ModName)</RootNamespace>
+    <TargetFramework>net6.0</TargetFramework>
+    <!-- Pre-release default. Bump to 1.0.0 only when publishing; Plugin.cs reads it via ModBuildInfo. -->
+    <Version>0.0.1</Version>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <ModDeployPath>$(FarmTogether2PluginDeployPath)\$(ModName)</ModDeployPath>
+  </PropertyGroup>
+
+  <!-- Reference assemblies come only from the game's generated interop + BepInEx core; never ship them. -->
+  <ItemGroup>
+    <Reference Include="BepInEx.Core"><HintPath>$(FarmTogether2BepInExCorePath)\BepInEx.Core.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="BepInEx.Unity.IL2CPP"><HintPath>$(FarmTogether2BepInExCorePath)\BepInEx.Unity.IL2CPP.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="0Harmony"><HintPath>$(FarmTogether2BepInExCorePath)\0Harmony.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Il2CppInterop.Runtime"><HintPath>$(FarmTogether2BepInExCorePath)\Il2CppInterop.Runtime.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Il2CppInterop.Common"><HintPath>$(FarmTogether2BepInExCorePath)\Il2CppInterop.Common.dll</HintPath><Private>false</Private></Reference>
+
+    <!-- Generated interop: the game types we patch and query (MilkInputModule, ItemListButton, CustomizationBaseScreen). -->
+    <Reference Include="Assembly-CSharp"><HintPath>$(FarmTogether2InteropPath)\Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Il2Cppmscorlib"><HintPath>$(FarmTogether2InteropPath)\Il2Cppmscorlib.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(FarmTogether2InteropPath)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <!-- EventSystem, PointerEventData, BaseInputModule. -->
+    <Reference Include="UnityEngine.UI"><HintPath>$(FarmTogether2InteropPath)\UnityEngine.UI.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+
+  <Target Name="DeployPlugin" AfterTargets="Build" Condition="'$(SkipDeploy)' != 'true'">
+    <MakeDir Directories="$(ModDeployPath)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModDeployPath)" SkipUnchangedFiles="true" />
+    <Message Importance="high" Text="Deployed $(AssemblyName).dll -> $(ModDeployPath)" />
+  </Target>
+
+</Project>

@@ -1,0 +1,36 @@
+<Project>
+
+  <!--
+    Shared by every mod under mods/ (byte-identical copy at each mod root, see sync-mod-files.ps1).
+
+    The game is IL2CPP (verified 2026-11-06: GameAssembly.dll + il2cpp_data, Unity 2022.3.62). Loader:
+    BepInEx 6 bleeding edge Unity.IL2CPP win-x64 (build 793 installed on ANU). Mods target net6.0 and
+    reference the generated interop assemblies in <game>\BepInEx\interop plus <game>\BepInEx\core.
+    interop\ only exists after the game has been launched once with BepInEx installed
+    (tools/anu/install-bepinex.ps1, then tools/anu/run-test.ps1). Per-mod csproj sets
+    <TargetFramework>net6.0</TargetFramework> and references the DLLs via the properties below.
+    Edit here once, then run tools/sync-mod-files.ps1.
+  -->
+  <PropertyGroup>
+    <FarmTogether2GamePath Condition="'$(FarmTogether2GamePath)' == ''">G:\SteamLibrary\steamapps\common\Farm Together 2</FarmTogether2GamePath>
+    <FarmTogether2InteropPath>$(FarmTogether2GamePath)\BepInEx\interop</FarmTogether2InteropPath>
+    <FarmTogether2BepInExCorePath>$(FarmTogether2GamePath)\BepInEx\core</FarmTogether2BepInExCorePath>
+    <FarmTogether2PluginDeployPath>$(FarmTogether2GamePath)\BepInEx\plugins\FarmTogether2Mods</FarmTogether2PluginDeployPath>
+    <LangVersion>latest</LangVersion>
+    <!-- Surface the .editorconfig code-style rules as build warnings. -->
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+  </PropertyGroup>
+
+
+  <!-- Single source of truth for the plugin version: generate a compile-time constant
+       from the csproj <Version> so [BepInPlugin] never drifts from a hardcoded string. -->
+  <Target Name="GenerateModBuildInfo" BeforeTargets="CoreCompile">
+    <WriteLinesToFile
+      File="$(IntermediateOutputPath)ModBuildInfo.g.cs"
+      Overwrite="true"
+      Lines="// &lt;auto-generated&gt; version comes from the csproj &lt;Version&gt;;internal static class ModBuildInfo { public const string Version = &quot;$(Version)&quot;%3B }" />
+    <ItemGroup>
+      <Compile Include="$(IntermediateOutputPath)ModBuildInfo.g.cs" />
+    </ItemGroup>
+  </Target>
+</Project>

@@ -1,6 +1,6 @@
 # Click To Choose — Nexus page source
 
-**Nexus page:** not yet published
+**Nexus page:** draft (unpublished), mod ID 21 - https://www.nexusmods.com/games/farmtogether2/mods/21 (edit: /edit/media). Main file uploaded 2026-11-07, 1.0.0; Publish blocked until a gallery image is added.
 
 The description field is **SCEditor with a BBCode source**, so the block below is the literal
 value to set. Every paragraph is a single unbroken line, because the editor turns every wrap in a

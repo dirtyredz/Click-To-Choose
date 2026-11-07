@@ -16,7 +16,7 @@ the Farm Together 2 category list at upload time)*
 **Tags:** Quality of Life, User Interface *(assumption: confirm both exist in the fixed per-game tag list before
 saving; drop any that do not)*
 **Requirements:** BepInEx 6 bleeding edge, Unity IL2CPP (win-x64), build 793 or newer
-**Nexus page:** not yet published
+**Nexus page:** draft (unpublished), mod ID 21 - https://www.nexusmods.com/games/farmtogether2/mods/21 (edit: /edit/media). Main file uploaded 2026-11-07, 1.0.0; Publish blocked until a gallery image is added.
 **Source:** https://github.com/dirtyredz/Click-To-Choose (MIT)
 
 ---

@@ -41,13 +41,15 @@ console runner could not exercise anything real. Verification is manual - see [T
 - [x] **Zip contents** - only `BepInEx/plugins/ClickToChoose/ClickToChoose.dll`
 - [x] **Nexus copy** - [NEXUS.md](NEXUS.md) and [nexus-paste.md](nexus-paste.md) written in the Moonlight Peaks style
 
-Still to do before / during publishing (done by the person driving Nexus):
+Publishing 1.0.0 (2026-11-07):
 
-- [ ] **Screenshots and banner** - none exist yet; see the shot list in [NEXUS.md](NEXUS.md)
-- [ ] **Fresh-install run on ANU** of the packed zip (`tools/anu/run-test.ps1`): plugin loads from
-      `plugins/ClickToChoose/`, `LogOutput.log` shows the "patch applied" line, no Harmony errors
-- [ ] **Tags** - confirm the suggested tags exist in the fixed Farm Together 2 tag list
-- [ ] **Upload** the zip as the main file, then verify the live page (not the editor)
+- [x] **Published** - https://www.nexusmods.com/farmtogether2/mods/21 (page 21, main file 40,
+      4136 bytes = the packed zip; verified via Nexus GraphQL: published, version 1.0.0, Miscellaneous)
+- [x] **Category / tags** - FT2 has one category, Miscellaneous; tags Quality of Life + User Interface
+- [x] **Gallery image** - `assets/nexus-gallery-1.png`, AI-generated (Astra / Codex image tool),
+      illustrative only; the page's AI-usage field covers it. Replace with real screenshots.
+- [ ] **Screenshots** - real in-game shots still to add (owner); see the shot list in [NEXUS.md](NEXUS.md)
+- [ ] **Fresh-install run on ANU** of the packed 1.0.0 zip via Vortex (the install-pack script run)
 
 ## Tagging
 
